@@ -41,8 +41,8 @@
     }
   },
   "scripts": {
-    "start": "concurrently \"BROWSER=none yarn web-start\" \"wait-on http://localhost:3000 && electron .\"",
-    "prebuild": "yarn web-build",
+    "start": "concurrently \"BROWSER=none npm run web-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "prebuild": "npm run web-build",
     "build": "electron-builder build",
     "web-start": "react-scripts start",
     "web-build": "react-scripts build",
