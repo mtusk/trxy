@@ -48,7 +48,8 @@
     "web-build": "react-scripts build",
     "web-test": "react-scripts test",
     "web-eject": "react-scripts eject",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "sample-trx": "dotnet test examples/TrxySampleTests/"
   },
   "eslintConfig": {
     "extends": "react-app"
