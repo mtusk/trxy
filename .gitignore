@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+examples/TrxySampleTests/bin
+examples/TrxySampleTests/obj
+.DS_Store
+build

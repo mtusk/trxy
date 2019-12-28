@@ -1,0 +1,95 @@
+{
+  "name": "trxy",
+  "version": "0.1.0",
+  "description": "View Visual Studio Test results files (`.trx`) on any platform without the need for Visual Studio.",
+  "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
+  "author": {
+    "name": "mtusk",
+    "email": "suport@mtusk.com",
+    "url": "https://github.com/mtusk"
+  },
+  "build": {
+    "appId": "com.mtusk.trxy",
+    "productName": "trxy",
+    "files": [
+      "build/**/*",
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "fileAssociations": [
+      {
+          "ext": ["trx"],
+          "name": "Visual Studio Test results file",
+          "role": "Viewer"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "start": "concurrently \"BROWSER=none npm run web-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "prebuild": "npm run web-build",
+    "build": "electron-builder build",
+    "web-start": "react-scripts start",
+    "web-build": "react-scripts build",
+    "web-test": "react-scripts test",
+    "web-eject": "react-scripts eject",
+    "postinstall": "electron-builder install-app-deps",
+    "sample-trx": "dotnet test examples/TrxySampleTests/"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.8.1",
+    "@material-ui/icons": "^4.5.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "electron-is-dev": "^1.1.0",
+    "material-table": "^1.54.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0",
+    "typeface-roboto": "0.0.75",
+    "typescript": "~3.7.2",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/xml2js": "^0.4.5",
+    "concurrently": "^5.0.2",
+    "electron": "^7.1.7",
+    "electron-builder": "^21.2.0",
+    "wait-on": "^3.3.0"
+  }
+}
