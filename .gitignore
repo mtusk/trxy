@@ -105,3 +105,4 @@ dist
 examples/TrxySampleTests/bin
 examples/TrxySampleTests/obj
 .DS_Store
+build
