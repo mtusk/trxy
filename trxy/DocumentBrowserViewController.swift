@@ -16,7 +16,6 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         
         delegate = self
         
-        allowsDocumentCreation = true
         allowsPickingMultipleItems = false
         
         // Update the style of the UIDocumentBrowserViewController
@@ -31,17 +30,17 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     
-    func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
-        let newDocumentURL: URL? = nil
-        
-        // Set the URL for the new document here. Optionally, you can present a template chooser before calling the importHandler.
-        // Make sure the importHandler is always called, even if the user cancels the creation request.
-        if newDocumentURL != nil {
-            importHandler(newDocumentURL, .move)
-        } else {
-            importHandler(nil, .none)
-        }
-    }
+//    func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
+//        let newDocumentURL: URL? = nil
+//
+//        // Set the URL for the new document here. Optionally, you can present a template chooser before calling the importHandler.
+//        // Make sure the importHandler is always called, even if the user cancels the creation request.
+//        if newDocumentURL != nil {
+//            importHandler(newDocumentURL, .move)
+//        } else {
+//            importHandler(nil, .none)
+//        }
+//    }
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentsAt documentURLs: [URL]) {
         guard let sourceURL = documentURLs.first else { return }
@@ -57,31 +56,33 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     }
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, failedToImportDocumentAt documentURL: URL, error: Error?) {
-        // Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
+        // TODO: Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
     }
     
     // MARK: Document Presentation
     
     func presentDocument(at documentURL: URL) {
-        let document = Document(fileURL: documentURL)
+        let document = TestResultsDocument(fileURL: documentURL)
 
         // Access the document
         document.open(completionHandler: { success in
             if success {
                 // Display the content of the document:
-                let view = DocumentView(document: document, dismiss: {
-                    self.closeDocument(document)
-                })
+                
+                let view = ListView(viewModel: .init(testResults: document.testResults))
+//                let view = DocumentView(document: document, dismiss: {
+//                    self.closeDocument(document) // TODO I probably want to implement this?
+//                })
 
                 let documentViewController = UIHostingController(rootView: view)
                 self.present(documentViewController, animated: true, completion: nil)
             } else {
-                // Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
+                // TODO: Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
             }
         })
     }
 
-    func closeDocument(_ document: Document) {
+    func closeDocument(_ document: TestResultsDocument) {
         dismiss(animated: true) {
             document.close(completionHandler: nil)
         }

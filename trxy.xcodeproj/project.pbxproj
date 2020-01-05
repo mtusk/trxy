@@ -3,17 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A97CF6B523C2470C00742884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6B423C2470C00742884 /* AppDelegate.swift */; };
 		A97CF6B723C2470C00742884 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6B623C2470C00742884 /* DocumentBrowserViewController.swift */; };
 		A97CF6B923C2470C00742884 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6B823C2470C00742884 /* DocumentView.swift */; };
-		A97CF6BB23C2470C00742884 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6BA23C2470C00742884 /* Document.swift */; };
+		A97CF6BB23C2470C00742884 /* TestResultsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6BA23C2470C00742884 /* TestResultsDocument.swift */; };
 		A97CF6BE23C2470C00742884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97CF6BC23C2470C00742884 /* Main.storyboard */; };
 		A97CF6C023C2470D00742884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97CF6BF23C2470D00742884 /* Assets.xcassets */; };
 		A97CF6C323C2470D00742884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97CF6C123C2470D00742884 /* LaunchScreen.storyboard */; };
+		A97CF6CF23C2491600742884 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6CE23C2491600742884 /* ListView.swift */; };
+		A97CF6D123C2491E00742884 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6D023C2491E00742884 /* ListRow.swift */; };
+		A97CF6D323C2492700742884 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6D223C2492700742884 /* DetailView.swift */; };
+		A97CF6D523C2493A00742884 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6D423C2493A00742884 /* ListViewModel.swift */; };
+		A97CF6D923C2495100742884 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6D823C2495100742884 /* DetailViewModel.swift */; };
+		A97CF6DB23C2496200742884 /* TestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6DA23C2496200742884 /* TestResult.swift */; };
+		A97CF6DE23C2506800742884 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = A97CF6DD23C2506800742884 /* SWXMLHash */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,12 +28,18 @@
 		A97CF6B423C2470C00742884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A97CF6B623C2470C00742884 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
 		A97CF6B823C2470C00742884 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
-		A97CF6BA23C2470C00742884 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		A97CF6BA23C2470C00742884 /* TestResultsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsDocument.swift; sourceTree = "<group>"; };
 		A97CF6BD23C2470C00742884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A97CF6BF23C2470D00742884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A97CF6C223C2470D00742884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A97CF6C423C2470D00742884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A97CF6CA23C2476C00742884 /* trxy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = trxy.entitlements; sourceTree = "<group>"; };
+		A97CF6CE23C2491600742884 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		A97CF6D023C2491E00742884 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
+		A97CF6D223C2492700742884 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A97CF6D423C2493A00742884 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A97CF6D823C2495100742884 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		A97CF6DA23C2496200742884 /* TestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97CF6DE23C2506800742884 /* SWXMLHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,17 +73,47 @@
 		A97CF6B323C2470C00742884 /* trxy */ = {
 			isa = PBXGroup;
 			children = (
+				A97CF6CD23C248A400742884 /* Models */,
+				A97CF6CC23C2489E00742884 /* ViewModels */,
+				A97CF6CB23C2489700742884 /* Views */,
 				A97CF6CA23C2476C00742884 /* trxy.entitlements */,
 				A97CF6B423C2470C00742884 /* AppDelegate.swift */,
 				A97CF6B623C2470C00742884 /* DocumentBrowserViewController.swift */,
-				A97CF6B823C2470C00742884 /* DocumentView.swift */,
-				A97CF6BA23C2470C00742884 /* Document.swift */,
 				A97CF6BC23C2470C00742884 /* Main.storyboard */,
 				A97CF6BF23C2470D00742884 /* Assets.xcassets */,
 				A97CF6C123C2470D00742884 /* LaunchScreen.storyboard */,
 				A97CF6C423C2470D00742884 /* Info.plist */,
 			);
 			path = trxy;
+			sourceTree = "<group>";
+		};
+		A97CF6CB23C2489700742884 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A97CF6B823C2470C00742884 /* DocumentView.swift */,
+				A97CF6CE23C2491600742884 /* ListView.swift */,
+				A97CF6D023C2491E00742884 /* ListRow.swift */,
+				A97CF6D223C2492700742884 /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A97CF6CC23C2489E00742884 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A97CF6D423C2493A00742884 /* ListViewModel.swift */,
+				A97CF6D823C2495100742884 /* DetailViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A97CF6CD23C248A400742884 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A97CF6BA23C2470C00742884 /* TestResultsDocument.swift */,
+				A97CF6DA23C2496200742884 /* TestResult.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,6 +132,9 @@
 			dependencies = (
 			);
 			name = trxy;
+			packageProductDependencies = (
+				A97CF6DD23C2506800742884 /* SWXMLHash */,
+			);
 			productName = trxy;
 			productReference = A97CF6B123C2470C00742884 /* trxy.app */;
 			productType = "com.apple.product-type.application";
@@ -116,6 +163,9 @@
 				Base,
 			);
 			mainGroup = A97CF6A823C2470C00742884;
+			packageReferences = (
+				A97CF6DC23C2506800742884 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
+			);
 			productRefGroup = A97CF6B223C2470C00742884 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -143,9 +193,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A97CF6BB23C2470C00742884 /* Document.swift in Sources */,
+				A97CF6BB23C2470C00742884 /* TestResultsDocument.swift in Sources */,
 				A97CF6B723C2470C00742884 /* DocumentBrowserViewController.swift in Sources */,
+				A97CF6D923C2495100742884 /* DetailViewModel.swift in Sources */,
+				A97CF6D123C2491E00742884 /* ListRow.swift in Sources */,
+				A97CF6DB23C2496200742884 /* TestResult.swift in Sources */,
+				A97CF6D323C2492700742884 /* DetailView.swift in Sources */,
+				A97CF6CF23C2491600742884 /* ListView.swift in Sources */,
 				A97CF6B923C2470C00742884 /* DocumentView.swift in Sources */,
+				A97CF6D523C2493A00742884 /* ListViewModel.swift in Sources */,
 				A97CF6B523C2470C00742884 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +408,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A97CF6DC23C2506800742884 /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/drmohundro/SWXMLHash.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A97CF6DD23C2506800742884 /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A97CF6DC23C2506800742884 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A97CF6A923C2470C00742884 /* Project object */;
 }
