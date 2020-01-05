@@ -70,11 +70,8 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
                 // Display the content of the document:
                 
                 let view = ListView(viewModel: .init(testResults: document.testResults))
-//                let view = DocumentView(document: document, dismiss: {
-//                    self.closeDocument(document) // TODO I probably want to implement this?
-//                })
-
                 let documentViewController = UIHostingController(rootView: view)
+                
                 self.present(documentViewController, animated: true, completion: nil)
             } else {
                 // TODO: Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.
