@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A96C618623CB6E5600E43C4A /* SheetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C618523CB6E5600E43C4A /* SheetListView.swift */; };
 		A97CF6B523C2470C00742884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6B423C2470C00742884 /* AppDelegate.swift */; };
 		A97CF6B723C2470C00742884 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6B623C2470C00742884 /* DocumentBrowserViewController.swift */; };
 		A97CF6BB23C2470C00742884 /* TestResultsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97CF6BA23C2470C00742884 /* TestResultsDocument.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A96C618523CB6E5600E43C4A /* SheetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetListView.swift; sourceTree = "<group>"; };
 		A97CF6B123C2470C00742884 /* trxy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trxy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97CF6B423C2470C00742884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A97CF6B623C2470C00742884 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				A97CF6CE23C2491600742884 /* ListView.swift */,
 				A97CF6D023C2491E00742884 /* ListRow.swift */,
 				A97CF6D223C2492700742884 /* DetailView.swift */,
+				A96C618523CB6E5600E43C4A /* SheetListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				A97CF6BB23C2470C00742884 /* TestResultsDocument.swift in Sources */,
 				A97CF6B723C2470C00742884 /* DocumentBrowserViewController.swift in Sources */,
 				A97CF6D923C2495100742884 /* DetailViewModel.swift in Sources */,
+				A96C618623CB6E5600E43C4A /* SheetListView.swift in Sources */,
 				A97CF6D123C2491E00742884 /* ListRow.swift in Sources */,
 				A97CF6DB23C2496200742884 /* TestResult.swift in Sources */,
 				A97CF6D323C2492700742884 /* DetailView.swift in Sources */,

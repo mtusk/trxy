@@ -9,26 +9,11 @@
 import Foundation
 
 class ListViewModel: ObservableObject {
-    @Published var testResults: [TestResult] = []
+    @Published var fileName: String
+    @Published var testResults: [TestResult]
     
-    init(testResults: [TestResult]) {
+    init(fileName: String, testResults: [TestResult]) {
+        self.fileName = fileName
         self.testResults = testResults
-    }
-    
-    @objc func openFile() {
-        self.testResults = [
-            TestResult(
-                guid: "1234",
-                id: "testId1",
-                name: "testName1",
-                testClassName: "testClassName1",
-                outcome: "testOutcome1"),
-            TestResult(
-                guid: "2345",
-                id: "testId2",
-                name: "testName2",
-                testClassName: "testClassName2",
-                outcome: "testOutcome2"),
-        ]
     }
 }

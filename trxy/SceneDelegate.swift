@@ -9,29 +9,58 @@
 import UIKit
 import SwiftUI
 
+let trxyOpenDetailActivityType       = "com.mtusk.trxy.openDetail"
+let trxyOpenDetailPath               = "openDetail"
+let trxyOpenDetailPhotoIdKey         = "photoId"
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow? // TODO how does this work with multiple scenes? Is this not relevatn? Should I only access windows from the scene somehow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        // References:
+        // - https://developer.apple.com/documentation/uikit/app_and_environment/scenes/supporting_multiple_windows_on_ipad
+        
+        
+        
+        
         // I think this is the entry point for this scene
         // AppDelegate tells the app to use this scene
         
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
+        // References:
+        // - https://medium.com/@ZkHaider/apples-new-uiscene-api-a-programmatic-approach-52d05e382cf2
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        let window = UIWindow(windowScene: windowScene)
+        self.window = UIWindow(windowScene: windowScene)
+        
+        // TODO I might be able to do the UI customization here as well (titlebar, etc)
+        // References:
+        // - https://developer.apple.com/videos/play/wwdc2019/235/ (~17:00)
+        #if targetEnvironment(macCatalyst)
+        if let titlebar = windowScene.titlebar {
+            let toolbar = NSToolbar(identifier: "1234")
             
-            // TODO I might be able to do the UI customization here as well (titlebar, etc)
+            // TODO add outcome filters: only show failed tests, etc
+            // TODO add search text box like the News app has
+            // TODO add share sheet to export markdown or other formats? (file -> save menu, too?)
             
-            // References:
-            // - https://medium.com/@Dougly/a-uiviewcontroller-and-uiviews-without-storyboard-swift-3-543096e78f2
-            let documentBrowserViewController = DocumentBrowserViewController()
-            window.rootViewController = documentBrowserViewController
+            titlebar.titleVisibility = .hidden
             
-            self.window = window // TODO should this window be given to the scene somehow?
-            
-            // Present the window
-            window.makeKeyAndVisible()
+            // TODO add file name as title?
+            titlebar.toolbar = toolbar
         }
+        #endif
+        
+        // References:
+        // - https://medium.com/@Dougly/a-uiviewcontroller-and-uiviews-without-storyboard-swift-3-543096e78f2
+        // - https://medium.com/@ZkHaider/apples-new-uiscene-api-a-programmatic-approach-52d05e382cf2
+        let documentBrowserViewController = DocumentBrowserViewController()
+//        window.rootViewController = documentBrowserViewController
+        self.window?.rootViewController = documentBrowserViewController
+        
+        // Present the window
+//        window.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible()
     }
     
     func scene(_ scene: UIScene, openURLContexts urlContexts: Set<UIOpenURLContext>) {
@@ -41,29 +70,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // - https://stackoverflow.com/a/58625433/682803
         // - https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene
         
-        // I bet:
-        //   open file from Finder, etc -> trxy -> this method
-        //   open trxy -> open file dialog appears -> user selects file -> this method
-        
         // TODO open each url in urlContexts
-        // TODO I think this is where I should set up the document browser view controller and attach it to the scene similar to how it hooked into window
         
-        if urlContexts.count <= 0 { return }
-        
-        let urlContext = urlContexts.first! // TODO add support multiple urls
-        
-        guard let documentBrowserViewController = window?.rootViewController as? DocumentBrowserViewController else { return }
-        
-        documentBrowserViewController.revealDocument(at: urlContext.url, importIfNeeded: true) { (revealedDocumentURL, error) in
-            if let error = error {
-                // Handle the error appropriately
-                print("Failed to reveal the document at URL \(urlContext.url) with error: '\(error)'")
-                return
-            }
-            
-            // Present the Document View Controller for the revealed URL
-            documentBrowserViewController.presentDocument(at: revealedDocumentURL!)
-        }
+//        if urlContexts.count <= 0 { return }
+//
+//        let urlContext = urlContexts.first! // TODO add support multiple urls
+//        
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        let window = windowScene.windows[0]
+//        guard let documentBrowserViewController = window.rootViewController as? DocumentBrowserViewController else { return }
+//
+//        documentBrowserViewController.revealDocument(at: urlContext.url, importIfNeeded: true) { (revealedDocumentURL, error) in
+//            if let error = error {
+//                // Handle the error appropriately
+//                print("Failed to reveal the document at URL \(urlContext.url) with error: '\(error)'")
+//                return
+//            }
+//
+//            // Present the Document View Controller for the revealed URL
+//            documentBrowserViewController.presentDocument(at: revealedDocumentURL!)
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -93,7 +119,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 

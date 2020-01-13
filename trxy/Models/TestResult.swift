@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import SWXMLHash
 
 struct TestResult : Decodable, Hashable, Identifiable {
-    var guid: String
     var id: String
+    var testId: String
     var name: String
     var testClassName: String
     var outcome: String

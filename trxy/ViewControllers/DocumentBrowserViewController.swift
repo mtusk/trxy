@@ -30,18 +30,6 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     
-//    func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
-//        let newDocumentURL: URL? = nil
-//
-//        // Set the URL for the new document here. Optionally, you can present a template chooser before calling the importHandler.
-//        // Make sure the importHandler is always called, even if the user cancels the creation request.
-//        if newDocumentURL != nil {
-//            importHandler(newDocumentURL, .move)
-//        } else {
-//            importHandler(nil, .none)
-//        }
-//    }
-    
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentsAt documentURLs: [URL]) {
         guard let sourceURL = documentURLs.first else { return }
         
@@ -69,7 +57,10 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
             if success {
                 // Display the content of the document:
                 
-                let view = ListView(viewModel: .init(testResults: document.testResults))
+                let view = ListView(viewModel: ListViewModel(
+                    fileName: document.fileName,
+                    testResults: document.testResults))
+                
                 let documentViewController = UIHostingController(rootView: view)
                 
                 self.present(documentViewController, animated: true, completion: nil)

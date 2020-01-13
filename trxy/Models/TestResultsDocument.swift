@@ -15,6 +15,7 @@ class TestResultsDocument: UIDocument {
     // - https://www.raywenderlich.com/1809473-uidocument-from-scratch
     // - https://www.techotopia.com/index.php/Managing_Files_using_the_iOS_8_UIDocument_Class
     
+    var fileName: String = ""
     var testResults: [TestResult] = [TestResult]()
     
     override var description: String {
@@ -41,6 +42,7 @@ class TestResultsDocument: UIDocument {
             testResults = try parseTrx(xml: text!)
         }
         
+        self.fileName = fileURL.deletingPathExtension().lastPathComponent
         self.testResults = testResults
     }
     
@@ -66,24 +68,24 @@ class TestResultsDocument: UIDocument {
             
             let unitTestResult = unitTestResults[i]
 
-            let guid = unitTestResult.element?.attribute(by: "testId")?.text ?? ""
+            let id = unitTestResult.element?.attribute(by: "testId")?.text ?? ""
             let outcome = unitTestResult.element?.attribute(by: "outcome")?.text ?? ""
             
             var name = ""
             var testClassName = ""
-            var id = ""
+            var testId = ""
 
-            if guid != "" {
-                let unitTest = try unitTests.withAttribute("id", guid)
+            if id != "" {
+                let unitTest = try unitTests.withAttribute("id", id)
                 
                 name = unitTest.element?.attribute(by: "name")?.text ?? ""
                 testClassName = unitTest["TestMethod"].element?.attribute(by: "className")?.text ?? ""
-                id = testClassName + name
+                testId = testClassName + name
             }
             
             let testResult = TestResult(
-                guid: guid,
                 id: id,
+                testId: testId,
                 name: name,
                 testClassName: testClassName,
                 outcome: outcome)

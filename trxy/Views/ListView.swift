@@ -19,9 +19,41 @@ struct ListView: View {
         NavigationView {
             List {
                 ForEach(viewModel.testResults) { testResult in
-                    ListRow(testResult: testResult)
+                    NavigationLink(destination: DetailView(viewModel: .init(testResult: testResult))) {
+                        Text(testResult.name)
+                    }
                 }
             }
+            .navigationBarTitle(viewModel.fileName)
+//            .navigationViewStyle(DoubleColumnNavigationViewStyle()) // reference: https://stackoverflow.com/a/57215664/682803
         }
+    }
+}
+
+struct ListView_Preview: PreviewProvider {
+    static var previews: some View {
+        ListView(
+            viewModel: ListViewModel(
+                fileName: "my-file-name.trx",
+                testResults: [
+                    TestResult(
+                        id: "1234-5678-9012",
+                        testId: "my really long test id that will wrap 1",
+                        name: "My Test Name 1",
+                        testClassName: "My Test Class Name",
+                        outcome: "Passed"),
+                    TestResult(
+                        id: "2345-5678-9012",
+                        testId: "my really long test id that will wrap 2",
+                        name: "My Test Name 2",
+                        testClassName: "My Test Class Name",
+                        outcome: "Passed"),
+                    TestResult(
+                        id: "3456-5678-9012",
+                        testId: "my really long test id that will wrap 3",
+                        name: "My Test Name 3",
+                        testClassName: "My Test Class Name",
+                        outcome: "Passed")
+                ]))
     }
 }
