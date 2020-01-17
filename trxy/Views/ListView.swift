@@ -12,19 +12,54 @@ import SwiftUI
 // followed this example:
 // https://github.com/kitasuke/SwiftUI-MVVM/blob/master/SwiftUI-MVVM/Views/RepositoryListView.swift
 
+//struct MyNavigationViewController: UIViewControllerRepresentable { // reference: https://goshdarnswiftui.com/#uiviewrepresentable
+//    var controllers: [UIViewController]
+//
+//    func makeUIViewController(context: Context) -> UINavigationController {
+//        let navigationViewController = UINavigationController()
+//
+//        return navigationViewController
+//    }
+//
+//    func updateUIViewController(_ navigationViewController: UINavigationController, context: Context) {
+//        navigationViewController.setViewControllers(
+//            [controllers[0]], animated: true)
+//    }
+//}
+
+//struct MyNavigationConfigurator: UIViewControllerRepresentable { // reference: https://stackoverflow.com/a/58427754/682803
+//    var configure: (UINavigationController) -> Void = { _ in }
+//
+//    func makeUIViewController(context: UIViewControllerRepresentableContext<MyNavigationConfigurator>) -> UIViewController {
+//        UIViewController()
+//    }
+//
+//    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<MyNavigationConfigurator>) {
+//        if let navigationController = uiViewController.navigationController {
+//            self.configure(navigationController)
+//        }
+//    }
+//}
+
 struct ListView: View {
     @ObservedObject var viewModel: ListViewModel
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.testResults) { testResult in
-                    NavigationLink(destination: DetailView(viewModel: .init(testResult: testResult))) {
-                        Text(testResult.name)
-                    }
-                }
+            NavigationLink(destination: Text("sup")) {
+                Text("Click me")
             }
-            .navigationBarTitle(viewModel.fileName)
+//        MyNavigationView {
+//            List {
+//                ForEach(self.viewModel.testResults) { testResult in
+//                    NavigationLink(destination: DetailView(viewModel: .init(testResult: testResult))) {
+//                        Text(testResult.name)
+//                    }
+//                }
+//            }
+//            .listStyle(.sidebar)
+//            .listStyle(SidebarListStyle())
+//            .navigationBarTitle(self.viewModel.fileName)
 //            .navigationViewStyle(DoubleColumnNavigationViewStyle()) // reference: https://stackoverflow.com/a/57215664/682803
         }
     }
