@@ -11,8 +11,12 @@ import SwiftUI
 
 class Document: NSDocument {
     
-    @objc var content = Content(contentString: "")
-    var contentViewController: ViewController!
+    // references:
+    // - https://www.raywenderlich.com/1809473-uidocument-from-scratch
+    // - https://www.techotopia.com/index.php/Managing_Files_using_the_iOS_8_UIDocument_Class
+    
+    @objc var content = Content(testResults: [TestResult]())
+    var contentViewController: ViewController?
     
     override init() {
         super.init()
@@ -32,7 +36,7 @@ class Document: NSDocument {
             // Set the view controller's represented object as your document.
             if let contentVC = windowController.contentViewController as? ViewController {
                 contentVC.representedObject = content
-                contentViewController = contentVC
+                self.contentViewController = contentVC
             }
         }
     }

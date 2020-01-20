@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // https://www.raywenderlich.com/613-windows-and-windowcontroller-tutorial-for-macos
     // http://www.arp.com/medias/13902069.pdf (Document-Based App Programming Guide for Mac)
     // https://developer.apple.com/documentation/appkit/documents_files_and_icloud/developing_a_document-based_app
+    // https://www.raywenderlich.com/830-macos-nstableview-tutorial
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
