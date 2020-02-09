@@ -1,7 +1,7 @@
 ﻿using AppKit;
 using Foundation;
 
-namespace trxy
+namespace trxy.MacOS
 {
     [Register("AppDelegate")]
     public class AppDelegate : NSApplicationDelegate

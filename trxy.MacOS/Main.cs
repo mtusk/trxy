@@ -1,6 +1,6 @@
 ﻿using AppKit;
 
-namespace trxy
+namespace trxy.MacOS
 {
     static class MainClass
     {

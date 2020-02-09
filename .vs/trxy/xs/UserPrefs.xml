@@ -1,18 +1,19 @@
-﻿<Properties StartupConfiguration="{0892CA56-CC38-4EC2-B8ED-C1A3EFC56777}|Default">
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{6987415E-2211-4FB6-80B9-254D173A1BF3}|Default">
+  <MonoDevelop.Ide.ItemProperties.trxy.MacOS PreferredExecutionTarget="Test1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="trxy.MacOS/AppDelegate.cs">
+    <Files>
+      <File FileName="trxy.MacOS/AppDelegate.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="trxy" expanded="True">
-            <Node name="trxy" expanded="True">
-              <Node name="AppDelegate.cs" selected="True" />
-            </Node>
+            <Node name="trxy.MacOS" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.trxy FirstBuild="True" PreferredExecutionTarget="Test1" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

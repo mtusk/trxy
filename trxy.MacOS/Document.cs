@@ -3,7 +3,7 @@
 using AppKit;
 using Foundation;
 
-namespace trxy
+namespace trxy.MacOS
 {
     [Register("Document")]
     public class Document : NSDocument

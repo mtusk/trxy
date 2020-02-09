@@ -6,7 +6,7 @@
 //
 using Foundation;
 
-namespace trxy
+namespace trxy.MacOS
 {
     [Register("ViewController")]
     partial class ViewController
