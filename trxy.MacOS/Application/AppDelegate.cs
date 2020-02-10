@@ -19,5 +19,11 @@ namespace trxy.MacOS
         {
             // Insert code here to tear down your application
         }
+
+        [Export("applicationShouldOpenUntitledFile:")]
+        public override bool ApplicationShouldOpenUntitledFile(NSApplication sender)
+        {
+            return false;
+        }
     }
 }

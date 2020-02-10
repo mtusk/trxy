@@ -1,13 +1,16 @@
 ﻿using System;
-
 using AppKit;
 using Foundation;
+using trxy.MacOS.Models;
 
 namespace trxy.MacOS
 {
     [Register("Document")]
     public class Document : NSDocument
     {
+        private Content content;
+        private ViewController viewController;
+
         public Document(IntPtr handle) : base(handle)
         {
             // Add your subclass-specific initialization here.
@@ -28,7 +31,19 @@ namespace trxy.MacOS
         public override void MakeWindowControllers()
         {
             // Override to return the Storyboard file name of the document.
-            AddWindowController((NSWindowController)NSStoryboard.FromName("Main", null).InstantiateControllerWithIdentifier("Document Window Controller"));
+            var storyboard = NSStoryboard
+                .FromName("Main", null)
+                .InstantiateControllerWithIdentifier("Document Window Controller");
+
+            var windowController = (NSWindowController)storyboard;
+
+            this.AddWindowController(windowController);
+
+            if (windowController.ContentViewController is ViewController)
+            {
+                this.viewController = windowController.ContentViewController as ViewController;
+                this.viewController.RepresentedObject = this.content;
+            }
         }
 
         public override NSData GetAsData(string typeName, out NSError outError)
@@ -40,9 +55,11 @@ namespace trxy.MacOS
 
         public override bool ReadFromData(NSData data, string typeName, out NSError outError)
         {
-            // Insert code here to read your document from the given data of the specified type. 
-            // If outError != NULL, ensure that you create and set an appropriate error when returning NO.
-            throw new NotImplementedException();
+            outError = null;
+
+            this.content.Read(data);
+
+            return true;
         }
     }
 }

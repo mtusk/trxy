@@ -63,22 +63,27 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Models\" />
+    <Folder Include="Presentation\" />
+    <Folder Include="Application\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
+    <Compile Include="Application\AppDelegate.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Application\Main.cs" />
+    <Compile Include="Presentation\ViewController.cs" />
+    <Compile Include="Presentation\ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Document.cs" />
+    <Compile Include="Models\Content.cs" />
+    <Compile Include="Models\TestResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Presentation\Main.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
