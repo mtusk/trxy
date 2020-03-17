@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AppKit;
 using Foundation;
 using trxy.MacOS.Models;
@@ -8,7 +9,7 @@ namespace trxy.MacOS
     [Register("Document")]
     public class Document : NSDocument
     {
-        private Content content;
+        private Content content = new Content(new List<TestResult>());
         private ViewController viewController;
 
         public Document(IntPtr handle) : base(handle)
