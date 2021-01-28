@@ -88,7 +88,7 @@
   "devDependencies": {
     "@types/xml2js": "^0.4.5",
     "concurrently": "^5.0.2",
-    "electron": "^7.1.7",
+    "electron": "^9.4.0",
     "electron-builder": "^21.2.0",
     "wait-on": "^3.3.0"
   }
