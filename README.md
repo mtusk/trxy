@@ -16,3 +16,6 @@ $ npm run sample-trx # generates a sample trx file from /examples/TrxySampleTest
 ```
 
 Check out [`/examples/TrxySampleTests/TestResults`](/examples/TrxySampleTests/TestResults) for some example files to open!
+
+## Alternatives
+A lighter-weight alternative: [trxviewer](https://github.com/scabana/trxviewer) Visual Studio Code extension.
